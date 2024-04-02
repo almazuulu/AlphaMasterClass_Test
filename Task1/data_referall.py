@@ -1,11 +1,14 @@
+from __future__ import annotations
+
 import pandas as pd
+
 
 def load_referral_tree(csv_path):
     client_data = pd.read_csv(csv_path)
     referral_tree = {}
     for index, row in client_data.iterrows():
-        email = row['email']
-        ref_email = row['referral_email']
+        email = row["email"]
+        ref_email = row["referral_email"]
         if pd.isna(ref_email):  # If the referral_email is NaN, it's a root node
             referral_tree[email] = []
         else:
@@ -27,7 +30,7 @@ def get_referrals(email, referral_tree, level=0, is_root=True):
     :return: A list of strings representing the referral hierarchy.
     """
     output = []
-    indent = '    '  # Four spaces for indentation
+    indent = "    "  # Four spaces for indentation
 
     if level == 0:
         output.append(email)
