@@ -20,15 +20,6 @@ def load_referral_tree(csv_path):
 
 
 def get_referrals(email, referral_tree, level=0, is_root=True):
-    """
-    Recursively finds all referrals for a given email, including the email itself at the top.
-
-    :param email: The email to find referrals for.
-    :param referral_tree: The data structure containing the referral relationships.
-    :param level: The current level of depth in the referral tree.
-    :param is_root: Boolean indicating if the function is being called for the root email.
-    :return: A list of strings representing the referral hierarchy.
-    """
     output = []
     indent = "    "  # Four spaces for indentation
 
